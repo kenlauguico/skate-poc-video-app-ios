@@ -36,10 +36,30 @@ class RoomsViewController: UITableViewController {
         let session = NSURLSession(configuration: config)
         let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
             print(data)
+            //url connection method
+            let daData = self.startParsing(data: data! as NSData)
+            print(daData)
         }
         task.resume()
     }
     
+    func startParsing(data :NSData) {
+        let dict: NSDictionary!=(try! JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.mutableContainers)) as? NSDictionary
+
+        for i in 0..<(dict.value(forKey: "Marvel") as! NSArray).count
+        {
+            roomsArrayDict.add((dict.value(forKey: "Marvel") as! NSArray)
+        .object(at: i))
+        }
+        for i in 0..<(dict.value(forKey: "DC") as! NSArray).count
+        {
+            roomsArrayDict.add((dict.value(forKey: "DC") as! NSArray)
+        .object(at: i))
+        }
+        tableView.reloadData()
+    }
+    
+    var roomsArrayDict = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +83,7 @@ class RoomsViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.sections.count
+        roomsArrayDict.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
