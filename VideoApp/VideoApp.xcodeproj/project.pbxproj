@@ -13,6 +13,10 @@
 		243CDB4C22665F1800637B6B /* TwilioColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243CDB4922665F1800637B6B /* TwilioColors.swift */; };
 		24C5217A20FFAD030018E2D8 /* EmailPasswordLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5217820FFAD030018E2D8 /* EmailPasswordLoginViewController.swift */; };
 		24C5217B20FFAD030018E2D8 /* EmailPasswordLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5217820FFAD030018E2D8 /* EmailPasswordLoginViewController.swift */; };
+		425FC99225B161E9003B99CD /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426BC37225A91329000DE1AB /* RoomsViewController.swift */; };
+		425FC99825B161EA003B99CD /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426BC37225A91329000DE1AB /* RoomsViewController.swift */; };
+		425FC99F25B17103003B99CD /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FC99E25B17103003B99CD /* RoomsViewModel.swift */; };
+		425FC9A025B17103003B99CD /* RoomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425FC99E25B17103003B99CD /* RoomsViewModel.swift */; };
 		4B0012261FBA52C4004A587E /* StatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A723E21ECE1C8500486E7A /* StatsViewController.m */; };
 		4B0012291FBA52C4004A587E /* TrackStatsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A723EC1ECE1D2A00486E7A /* TrackStatsTableViewCell.m */; };
 		4B00122C1FBA52C4004A587E /* StatsUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A723E61ECE1CBD00486E7A /* StatsUIModel.m */; };
@@ -468,6 +472,7 @@
 		2BE77220CF59EDFDB7EA1086 /* Pods_Video_Internal_Video_InternalTests_Video_CommunityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Video_Internal_Video_InternalTests_Video_CommunityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F565645E975B9B195D81C5B /* Pods-Video-Internal-Video-Community.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video-Internal-Video-Community.debug.xcconfig"; path = "Target Support Files/Pods-Video-Internal-Video-Community/Pods-Video-Internal-Video-Community.debug.xcconfig"; sourceTree = "<group>"; };
 		3643530DDA99CCF776B5F33A /* Pods-Video-Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video-Internal.release.xcconfig"; path = "Target Support Files/Pods-Video-Internal/Pods-Video-Internal.release.xcconfig"; sourceTree = "<group>"; };
+		425FC99E25B17103003B99CD /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		426BC37225A91329000DE1AB /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		4B00124E1FBA52C4004A587E /* Video-Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video-Internal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B00128B1FBA52E5004A587E /* Video-Community.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video-Community.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -862,6 +867,7 @@
 			isa = PBXGroup;
 			children = (
 				426BC37225A91329000DE1AB /* RoomsViewController.swift */,
+				425FC99E25B17103003B99CD /* RoomsViewModel.swift */,
 			);
 			path = Rooms;
 			sourceTree = "<group>";
@@ -2272,6 +2278,7 @@
 				DCF4615E2385B10200DD8FEA /* GeneralSettingsViewModel.swift in Sources */,
 				DC2511AC2478213400C776D6 /* EditMaxSubscriptionBitrateViewModel.swift in Sources */,
 				DCEDB39C2475D4D9006AF70D /* SelectStandardRenderDimensionsViewModelFactory.swift in Sources */,
+				425FC99225B161E9003B99CD /* RoomsViewController.swift in Sources */,
 				DCC7E35E24070C5200431AC3 /* AuthFlowFactory.swift in Sources */,
 				DC85CA6223CE4FCA00BF016F /* AppCenterStoreFactory.swift in Sources */,
 				DCC7E3562406ED3900431AC3 /* UserDefaultsProtocol.swift in Sources */,
@@ -2316,6 +2323,7 @@
 				DC8EAE4023BA926E0045018F /* VideoStore.swift in Sources */,
 				DC8EAE3023BA5EC80045018F /* AppDelegate.swift in Sources */,
 				4B0012261FBA52C4004A587E /* StatsViewController.m in Sources */,
+				425FC99F25B17103003B99CD /* RoomsViewModel.swift in Sources */,
 				DC9A5E4C2463575F00E4B079 /* UserStoreFactory.swift in Sources */,
 				DC9A5DC6245A0B5F00E4B079 /* Room.swift in Sources */,
 				DC0446B923A182980072F597 /* CrashReportStore.swift in Sources */,
@@ -2448,6 +2456,7 @@
 				DCF4615F2385B10200DD8FEA /* GeneralSettingsViewModel.swift in Sources */,
 				DC2511AD2478213400C776D6 /* EditMaxSubscriptionBitrateViewModel.swift in Sources */,
 				DCEDB39D2475D4D9006AF70D /* SelectStandardRenderDimensionsViewModelFactory.swift in Sources */,
+				425FC99825B161EA003B99CD /* RoomsViewController.swift in Sources */,
 				DCC7E35F24070C5200431AC3 /* AuthFlowFactory.swift in Sources */,
 				DC85CA6323CE4FCA00BF016F /* AppCenterStoreFactory.swift in Sources */,
 				DCC7E3572406ED3900431AC3 /* UserDefaultsProtocol.swift in Sources */,
@@ -2492,6 +2501,7 @@
 				DC8EAE4123BA926E0045018F /* VideoStore.swift in Sources */,
 				DC8EAE3123BA5EC80045018F /* AppDelegate.swift in Sources */,
 				4B0012631FBA52E5004A587E /* StatsViewController.m in Sources */,
+				425FC9A025B17103003B99CD /* RoomsViewModel.swift in Sources */,
 				DC9A5E4D2463575F00E4B079 /* UserStoreFactory.swift in Sources */,
 				DC9A5DC7245A0B5F00E4B079 /* Room.swift in Sources */,
 				DC0446BA23A182980072F597 /* CrashReportStore.swift in Sources */,

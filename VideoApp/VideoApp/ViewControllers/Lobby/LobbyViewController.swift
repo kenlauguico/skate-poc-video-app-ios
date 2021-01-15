@@ -24,12 +24,15 @@ class LobbyViewController: UIViewController {
     @IBOutlet weak var audioToggleButton: UIButton!
     @IBOutlet weak var videoToggleButton: UIButton!
     @IBOutlet weak var flipCameraButton: UIButton!
+    @IBOutlet weak var roomsButton: UIButton!
     private let roomFactory = RoomFactory()
     private let deepLinkStore: DeepLinkStoreWriting = DeepLinkStore.shared
     private let notificationCenter = NotificationCenter.default
     private var room: Room!
     private var participant: LocalParticipant { room.localParticipant }
     private var shouldRenderVideo = true
+    
+    var window: UIWindow?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,6 +138,10 @@ class LobbyViewController: UIViewController {
         
         dismissKeyboard()
         performSegue(withIdentifier: "roomSegue", sender: self)
+    }
+    
+    @IBAction func roomsButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "roomsSegue", sender: self)
     }
     
     private func resetRoom() {

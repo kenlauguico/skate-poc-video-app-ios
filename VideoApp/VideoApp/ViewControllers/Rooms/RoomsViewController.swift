@@ -17,27 +17,34 @@
 import UIKit
 
 class RoomsViewController: UITableViewController {
+    private var room: Room!
+    var roomName: String!
     var viewModel: SettingsViewModel!
+    var roomsArrayDict = NSMutableArray()
+    private let roomFactory = RoomFactory()
     
+    private func resetRoom() {
+        room = roomFactory.makeRoom()
+    }
     
     func loadRooms() {
         let login = "AC3d6a6fca89c30fedee4940c46662adeb"
-        let password = "8bf98c1f474509091bc9907295c3a169"
+        let password = "dee1d9e0a89fc940181f2ef374ec05d1"
 
         let url = NSURL(string: "https://video.twilio.com/v1/Rooms?Status=in-progress&PageSize=20")
-        let request = NSMutableURLRequest(URL: url!)
+        let request = NSMutableURLRequest(url: url! as URL)
 
-        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let config = URLSessionConfiguration.default
         let userPasswordString = "\(login):\(password)"
-        let userPasswordData = userPasswordString.dataUsingEncoding(NSUTF8StringEncoding)
-        let base64EncodedCredential = userPasswordData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        let userPasswordData = userPasswordString.data(using: String.Encoding.utf8)
+        let base64EncodedCredential = userPasswordData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         let authString = "Basic \(base64EncodedCredential)"
-        config.HTTPAdditionalHeaders = ["Authorization" : authString]
-        let session = NSURLSession(configuration: config)
-        let task = session.dataTaskWithRequest(request) { (data, response, error) -> Void in
-            print(data)
+        config.httpAdditionalHeaders = ["Authorization" : authString]
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
+            print(data ?? "")
             //url connection method
-            let daData = self.startParsing(data: data! as NSData)
+            let daData: () = self.startParsing(data: data! as NSData)
             print(daData)
         }
         task.resume()
@@ -45,26 +52,28 @@ class RoomsViewController: UITableViewController {
     
     func startParsing(data :NSData) {
         let dict: NSDictionary!=(try! JSONSerialization.jsonObject(with: data as Data, options: JSONSerialization.ReadingOptions.mutableContainers)) as? NSDictionary
+        let roomsDict = dict.value(forKey: "rooms") as! NSArray
 
-        for i in 0..<(dict.value(forKey: "Marvel") as! NSArray).count
+        for i in 0..<(dict.value(forKey: "rooms") as! NSArray).count
         {
-            roomsArrayDict.add((dict.value(forKey: "Marvel") as! NSArray)
-        .object(at: i))
+            let roomName = (roomsDict[i] as? NSDictionary)?.value(forKey: "unique_name") as! String
+            if !roomName.contains("network-test") {
+                roomsArrayDict.add(roomName)
+            }
         }
-        for i in 0..<(dict.value(forKey: "DC") as! NSArray).count
-        {
-            roomsArrayDict.add((dict.value(forKey: "DC") as! NSArray)
-        .object(at: i))
-        }
-        tableView.reloadData()
+        refresh()
     }
-    
-    var roomsArrayDict = NSMutableArray()
+
+    func refresh() {
+        DispatchQueue.main.async { self.tableView.reloadData() }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = viewModel.title
+        title = "Rooms" // viewModel.title
+        
+        resetRoom()
 
         [BasicCell.self, RightDetailCell.self, SwitchCell.self, DestructiveButtonCell.self].forEach { tableView.register($0) }
         
@@ -83,88 +92,49 @@ class RoomsViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        roomsArrayDict.count
+        1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.sections[section].rows.count
+        roomsArrayDict.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch viewModel.row(at: indexPath) {
-        case let .info(title, detail):
-            let cell = tableView.dequeueReusableCell(withIdentifier: RightDetailCell.identifier)!
-            cell.textLabel?.text = title
-            cell.detailTextLabel?.text = detail
-            cell.selectionStyle = .none
-            return cell
-        case let .optionList(title, selectedOption, _):
-            let cell = tableView.dequeueReusableCell(withIdentifier: RightDetailCell.identifier)!
-            cell.textLabel?.text = title
-            cell.detailTextLabel?.text = selectedOption
-            cell.accessoryType = .disclosureIndicator
-            return cell
-        case let .toggle(title, isOn, updateHandler):
-            let cell = tableView.dequeueReusableCell(withIdentifier: SwitchCell.identifier) as! SwitchCell
-            cell.titleLabel.text = title
-            cell.switchView.isOn = isOn
-            cell.updateHandler = updateHandler
-            return cell
-        case let .destructiveButton(title, _):
-            let cell = tableView.dequeueReusableCell(withIdentifier: DestructiveButtonCell.identifier) as! DestructiveButtonCell
-            cell.buttonLabel.text = title
-            return cell
-        case let .push(title, _):
-            let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.identifier)!
-            cell.textLabel?.text = title
-            cell.accessoryType = .disclosureIndicator
-            return cell
-        case let .editableText(title, text, _):
-            let cell = tableView.dequeueReusableCell(withIdentifier: RightDetailCell.identifier)!
-            cell.textLabel?.text = title
-            cell.detailTextLabel?.text = text
-            cell.accessoryType = .disclosureIndicator
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: BasicCell.identifier)!
+        cell.textLabel?.text = roomsArrayDict[indexPath.row] as? String
+        cell.accessoryType = .disclosureIndicator
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch viewModel.row(at: indexPath) {
-        case .info, .toggle:
-            break
-        case let .optionList(_, _, viewModelFactory):
-            let sender = SelectOptionSegueSender(viewModelFactory: viewModelFactory, indexPath: indexPath)
-            performSegue(withIdentifier: "selectOption", sender: sender)
-        case let .destructiveButton(_, tapHandler):
-            tableView.deselectRow(at: indexPath, animated: true)
-            tapHandler()
-        case let .push(_, viewControllerFactory):
-            navigationController?.pushViewController(viewControllerFactory.makeViewController(), animated: true)
-        case let .editableText(_, _, viewModelFactory):
-            let sender = EditTextSegueSender(viewModelFactory: viewModelFactory, indexPath: indexPath)
-            performSegue(withIdentifier: "editText", sender: sender)
-        }
+        roomName = roomsArrayDict[indexPath.row] as? String
+        performSegue(withIdentifier: "roomSegue", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "selectOption":
-            let viewController = segue.destination as! SelectOptionViewController
-            let sender = sender as! SelectOptionSegueSender
-            viewController.viewModel = sender.viewModelFactory.makeSelectOptionViewModel()
-            viewController.updateHandler = { self.tableView.cellForRow(at: sender.indexPath)?.detailTextLabel?.text = $0 }
-        case "editText":
-            let viewController = segue.destination as! EditTextViewController
-            let sender = sender as! EditTextSegueSender
-            viewController.viewModel = sender.viewModelFactory.makeEditTextViewModel()
-            
-            viewController.updateHandler = {
-                if case let SettingsViewModelSection.Row.editableText(_, text, _) = self.viewModel.row(at: sender.indexPath) {
-                    self.tableView.cellForRow(at: sender.indexPath)?.detailTextLabel?.text = text
-                }
-            }
+        case "roomSegue":
+            let roomViewController = segue.destination as! RoomViewController
+            roomViewController.application = .shared
+            roomViewController.viewModel = RoomViewModelFactory().makeRoomViewModel(
+                roomName: roomName,
+                room: room
+            )
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let statsViewController = storyboard.instantiateViewController(withIdentifier: "statsViewController") as! StatsViewController
+            statsViewController.videoAppRoom = room
+            roomViewController.statsViewController = statsViewController
+        case "showSettings":
+            let navigationController = segue.destination as! UINavigationController
+            let settingsViewController = navigationController.viewControllers.first as! SettingsViewController
+            settingsViewController.viewModel = GeneralSettingsViewModel(
+                appInfoStore: AppInfoStoreFactory().makeAppInfoStore(),
+                appSettingsStore: AppSettingsStore.shared,
+                authStore: AuthStore.shared
+            )
         default:
             break
         }
     }
+
 }
