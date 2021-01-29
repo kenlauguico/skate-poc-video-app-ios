@@ -13,11 +13,15 @@
 		243CDB4C22665F1800637B6B /* TwilioColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243CDB4922665F1800637B6B /* TwilioColors.swift */; };
 		24C5217A20FFAD030018E2D8 /* EmailPasswordLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5217820FFAD030018E2D8 /* EmailPasswordLoginViewController.swift */; };
 		24C5217B20FFAD030018E2D8 /* EmailPasswordLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C5217820FFAD030018E2D8 /* EmailPasswordLoginViewController.swift */; };
+		423E2E6125C4A5D800A0F231 /* VerificationResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2E6025C4A5D800A0F231 /* VerificationResultViewController.swift */; };
+		423E2E6225C4A5D800A0F231 /* VerificationResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2E6025C4A5D800A0F231 /* VerificationResultViewController.swift */; };
+		423E2E9325C4ACA200A0F231 /* CheckVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2E9225C4ACA200A0F231 /* CheckVerificationViewController.swift */; };
+		423E2E9425C4ACA200A0F231 /* CheckVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423E2E9225C4ACA200A0F231 /* CheckVerificationViewController.swift */; };
 		4255FDAA25C3A4EF00E92BC0 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4255FDA925C3A4EF00E92BC0 /* Config.plist */; };
 		4255FDB125C3A60D00E92BC0 /* VerifyPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255FDB025C3A60D00E92BC0 /* VerifyPhoneViewController.swift */; };
-		4255FDB825C3A7FA00E92BC0 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255FDB725C3A7FA00E92BC0 /* DataStructures.swift */; };
+		4255FDB825C3A7FA00E92BC0 /* VerifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255FDB725C3A7FA00E92BC0 /* VerifyAPI.swift */; };
 		4255FDEF25C3DEB600E92BC0 /* VerifyPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255FDB025C3A60D00E92BC0 /* VerifyPhoneViewController.swift */; };
-		4255FDF525C3DEBE00E92BC0 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255FDB725C3A7FA00E92BC0 /* DataStructures.swift */; };
+		4255FDF525C3DEBE00E92BC0 /* VerifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255FDB725C3A7FA00E92BC0 /* VerifyAPI.swift */; };
 		4255FDFB25C3E59A00E92BC0 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4255FDA925C3A4EF00E92BC0 /* Config.plist */; };
 		425FC99225B161E9003B99CD /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426BC37225A91329000DE1AB /* RoomsViewController.swift */; };
 		425FC99825B161EA003B99CD /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426BC37225A91329000DE1AB /* RoomsViewController.swift */; };
@@ -478,9 +482,11 @@
 		2BE77220CF59EDFDB7EA1086 /* Pods_Video_Internal_Video_InternalTests_Video_CommunityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Video_Internal_Video_InternalTests_Video_CommunityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F565645E975B9B195D81C5B /* Pods-Video-Internal-Video-Community.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video-Internal-Video-Community.debug.xcconfig"; path = "Target Support Files/Pods-Video-Internal-Video-Community/Pods-Video-Internal-Video-Community.debug.xcconfig"; sourceTree = "<group>"; };
 		3643530DDA99CCF776B5F33A /* Pods-Video-Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Video-Internal.release.xcconfig"; path = "Target Support Files/Pods-Video-Internal/Pods-Video-Internal.release.xcconfig"; sourceTree = "<group>"; };
+		423E2E6025C4A5D800A0F231 /* VerificationResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationResultViewController.swift; sourceTree = "<group>"; };
+		423E2E9225C4ACA200A0F231 /* CheckVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckVerificationViewController.swift; sourceTree = "<group>"; };
 		4255FDA925C3A4EF00E92BC0 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		4255FDB025C3A60D00E92BC0 /* VerifyPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneViewController.swift; sourceTree = "<group>"; };
-		4255FDB725C3A7FA00E92BC0 /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
+		4255FDB725C3A7FA00E92BC0 /* VerifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyAPI.swift; sourceTree = "<group>"; };
 		425FC99E25B17103003B99CD /* RoomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewModel.swift; sourceTree = "<group>"; };
 		426BC37225A91329000DE1AB /* RoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
 		4B00124E1FBA52C4004A587E /* Video-Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Video-Internal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -878,7 +884,9 @@
 			isa = PBXGroup;
 			children = (
 				4255FDB025C3A60D00E92BC0 /* VerifyPhoneViewController.swift */,
-				4255FDB725C3A7FA00E92BC0 /* DataStructures.swift */,
+				4255FDB725C3A7FA00E92BC0 /* VerifyAPI.swift */,
+				423E2E6025C4A5D800A0F231 /* VerificationResultViewController.swift */,
+				423E2E9225C4ACA200A0F231 /* CheckVerificationViewController.swift */,
 			);
 			path = VerifyPhone;
 			sourceTree = "<group>";
@@ -2317,6 +2325,7 @@
 				DC8EAE4923BA9F390045018F /* WindowSceneObserving.swift in Sources */,
 				DC1C2F9323AC34B30044FB4D /* BundleProtocol.swift in Sources */,
 				DCEC3D1423861C9800EBDEBF /* SelectOptionViewModelFactory.swift in Sources */,
+				423E2E6125C4A5D800A0F231 /* VerificationResultViewController.swift in Sources */,
 				DC82A36523FF2EB60081578C /* SDKLogLevelSettingsViewControllerFactory.swift in Sources */,
 				DC3C32D52417E6E000F56AFB /* InternalAPIErrorResponseDecoder.swift in Sources */,
 				DCA65020240D91CA0038DEE1 /* CommunityCreateTwilioAccessTokenResponse.swift in Sources */,
@@ -2352,6 +2361,7 @@
 				DC76FD0224105500001B2FFC /* EnvironmentVariableStore.swift in Sources */,
 				DCEDB387247489DA006AF70D /* SelectSettingViewModel.swift in Sources */,
 				4255FDB125C3A60D00E92BC0 /* VerifyPhoneViewController.swift in Sources */,
+				423E2E9325C4ACA200A0F231 /* CheckVerificationViewController.swift in Sources */,
 				DCB7C18A2405BE40009DEA70 /* KeychainStore.swift in Sources */,
 				DCEDB38B2475B693006AF70D /* VideoDimensionsName.swift in Sources */,
 				DCB64B4A240995A100E090BE /* APIHTTPMethod.swift in Sources */,
@@ -2416,7 +2426,7 @@
 				DCD940B2243B9B7A00D9ECC5 /* ConnectOptionsFactory.swift in Sources */,
 				DCEDB3982475D476006AF70D /* SelectLowRenderDimensionsViewModelFactory.swift in Sources */,
 				DCC7E35A2407081F00431AC3 /* SignInSegueIdentifierFactory.swift in Sources */,
-				4255FDB825C3A7FA00E92BC0 /* DataStructures.swift in Sources */,
+				4255FDB825C3A7FA00E92BC0 /* VerifyAPI.swift in Sources */,
 				DC85CA4D23CCD39400BF016F /* AppCenterStore.swift in Sources */,
 				DCB64B502409976F00E090BE /* APIRequest.swift in Sources */,
 				DC9A5E1E2461C0A100E4B079 /* MicTrackFactory.swift in Sources */,
@@ -2497,6 +2507,7 @@
 				DC8EAE4A23BA9F390045018F /* WindowSceneObserving.swift in Sources */,
 				DC1C2F9423AC34B30044FB4D /* BundleProtocol.swift in Sources */,
 				DCEC3D1523861C9800EBDEBF /* SelectOptionViewModelFactory.swift in Sources */,
+				423E2E6225C4A5D800A0F231 /* VerificationResultViewController.swift in Sources */,
 				DC82A36623FF2EB60081578C /* SDKLogLevelSettingsViewControllerFactory.swift in Sources */,
 				DC3C32D62417E6E000F56AFB /* InternalAPIErrorResponseDecoder.swift in Sources */,
 				DCA6501F240D91C90038DEE1 /* CommunityCreateTwilioAccessTokenResponse.swift in Sources */,
@@ -2532,6 +2543,7 @@
 				DC76FD0324105501001B2FFC /* EnvironmentVariableStore.swift in Sources */,
 				DCEDB388247489DA006AF70D /* SelectSettingViewModel.swift in Sources */,
 				4255FDEF25C3DEB600E92BC0 /* VerifyPhoneViewController.swift in Sources */,
+				423E2E9425C4ACA200A0F231 /* CheckVerificationViewController.swift in Sources */,
 				DCB7C18B2405BE40009DEA70 /* KeychainStore.swift in Sources */,
 				DCEDB38C2475B693006AF70D /* VideoDimensionsName.swift in Sources */,
 				DCB64B4B240995A100E090BE /* APIHTTPMethod.swift in Sources */,
@@ -2596,7 +2608,7 @@
 				DCD940B3243B9B7A00D9ECC5 /* ConnectOptionsFactory.swift in Sources */,
 				DCEDB3992475D476006AF70D /* SelectLowRenderDimensionsViewModelFactory.swift in Sources */,
 				DCC7E35B2407081F00431AC3 /* SignInSegueIdentifierFactory.swift in Sources */,
-				4255FDF525C3DEBE00E92BC0 /* DataStructures.swift in Sources */,
+				4255FDF525C3DEBE00E92BC0 /* VerifyAPI.swift in Sources */,
 				DC85CA4E23CCD39400BF016F /* AppCenterStore.swift in Sources */,
 				DCB64B512409976F00E090BE /* APIRequest.swift in Sources */,
 				DC9A5E1F2461C0A100E4B079 /* MicTrackFactory.swift in Sources */,

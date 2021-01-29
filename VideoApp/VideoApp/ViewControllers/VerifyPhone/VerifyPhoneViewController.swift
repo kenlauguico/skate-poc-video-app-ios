@@ -29,8 +29,8 @@ class VerifyPhoneViewController: UIViewController {
     @IBOutlet weak var phoneNumberField: UITextField!
     @IBAction func sendVerification(_ sender: UIButton) {
         if let phoneNumber = phoneNumberField.text,
-                    let countryCode = countryCodeField.text {
-                    VerifyPhoneViewController.sendVerificationCode(countryCode, phoneNumber)
+           let countryCode = countryCodeField.text {
+            VerifyPhoneViewController.sendVerificationCode(countryCode, phoneNumber)
                 }
     }
 
@@ -83,5 +83,13 @@ class VerifyPhoneViewController: UIViewController {
             }
         }
         task.resume()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as?
+            CheckVerificationViewController {
+            dest.countryCode = countryCodeField.text
+            dest.phoneNumber = phoneNumberField.text
+        }
     }
 }
