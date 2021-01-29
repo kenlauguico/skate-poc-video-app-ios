@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvR-9j-vyL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-762.31884057971024" y="-1138.3928571428571"/>
+            <point key="canvasLocation" x="70" y="-1130"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="0Ie-IN-MOF">
@@ -300,6 +300,7 @@
                         <segue destination="VHW-D9-Yxw" kind="show" identifier="loginSegue" animates="NO" id="bkW-VQ-pWw"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="lobbySegue" id="Txa-aP-AmN"/>
                         <segue destination="yY1-e5-MwM" kind="show" identifier="passcodeSignIn" animates="NO" id="Dc1-pi-N6S"/>
+                        <segue destination="KhL-Ba-S1Y" kind="show" identifier="verifySegue" id="6ne-Yq-ZUg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9pG-mS-k4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -365,7 +366,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Room" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d96-2z-6r8">
-                                <rect key="frame" x="20" y="70.5" width="301" height="39.5"/>
+                                <rect key="frame" x="20" y="70.5" width="301" height="39"/>
                                 <accessibility key="accessibilityConfiguration" identifier="roomNameTextField"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -931,6 +932,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oam-Qa-Kvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2517" y="842"/>
+        </scene>
+        <!--Verify Phone-->
+        <scene sceneID="ipK-vP-k8q">
+            <objects>
+                <viewController id="KhL-Ba-S1Y" userLabel="Verify Phone" customClass="VerifyPhoneViewController" customModule="VideoApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sQV-E7-VNM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzL-ai-tkd">
+                                <rect key="frame" x="20" y="196" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0is-LO-fjI"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rzz-1A-fEZ">
+                                <rect key="frame" x="20" y="263" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="YrA-8D-pHe"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C68-0K-Axo" userLabel="Verify Button">
+                                <rect key="frame" x="20" y="333" width="374" height="48"/>
+                                <color key="backgroundColor" red="0.64296793939999997" green="0.12823647260000001" blue="0.1582765877" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="XXo-Ei-mCp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Verify Phone Number">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendVerification:" destination="KhL-Ba-S1Y" eventType="touchUpInside" id="BND-bk-UG4"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video-logo-login" translatesAutoresizingMaskIntoConstraints="NO" id="iac-1t-pNL">
+                                <rect key="frame" x="170" y="97" width="74" height="57"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N82-ng-k8b" userLabel="Passcode line">
+                                <rect key="frame" x="20" y="290" width="374" height="3"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="drN-PK-odg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K6g-bJ-Ia2" userLabel="Name line">
+                                <rect key="frame" x="20" y="223" width="374" height="3"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="IBX-cB-f5Z"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E9b-P1-Xtw"/>
+                        <color key="backgroundColor" red="0.80463725330000002" green="0.16199085120000001" blue="0.20183241369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="C68-0K-Axo" firstAttribute="top" secondItem="N82-ng-k8b" secondAttribute="bottom" constant="40" id="13j-dq-i9L"/>
+                            <constraint firstItem="FzL-ai-tkd" firstAttribute="leading" secondItem="E9b-P1-Xtw" secondAttribute="leading" constant="20" id="7hx-Cu-ugw"/>
+                            <constraint firstItem="K6g-bJ-Ia2" firstAttribute="top" secondItem="FzL-ai-tkd" secondAttribute="bottom" constant="-3" id="9vL-nL-G5w"/>
+                            <constraint firstItem="Rzz-1A-fEZ" firstAttribute="top" secondItem="K6g-bJ-Ia2" secondAttribute="bottom" constant="37" id="Cae-3Z-8DT"/>
+                            <constraint firstItem="C68-0K-Axo" firstAttribute="centerX" secondItem="Rzz-1A-fEZ" secondAttribute="centerX" id="DFp-tO-wuw"/>
+                            <constraint firstItem="E9b-P1-Xtw" firstAttribute="trailing" secondItem="FzL-ai-tkd" secondAttribute="trailing" constant="20" id="FCU-2v-FkQ"/>
+                            <constraint firstItem="N82-ng-k8b" firstAttribute="centerX" secondItem="K6g-bJ-Ia2" secondAttribute="centerX" id="Hz1-vc-Ocv"/>
+                            <constraint firstItem="iac-1t-pNL" firstAttribute="top" secondItem="E9b-P1-Xtw" secondAttribute="top" constant="53" id="Kxe-lg-kX8"/>
+                            <constraint firstItem="K6g-bJ-Ia2" firstAttribute="centerX" secondItem="FzL-ai-tkd" secondAttribute="centerX" id="YZI-AZ-ONB"/>
+                            <constraint firstItem="Rzz-1A-fEZ" firstAttribute="centerX" secondItem="FzL-ai-tkd" secondAttribute="centerX" id="Yzc-L0-Hrg"/>
+                            <constraint firstItem="iac-1t-pNL" firstAttribute="centerX" secondItem="E9b-P1-Xtw" secondAttribute="centerX" id="bBd-dK-Bd8"/>
+                            <constraint firstItem="N82-ng-k8b" firstAttribute="top" secondItem="Rzz-1A-fEZ" secondAttribute="bottom" constant="-3" id="bCG-6B-i02"/>
+                            <constraint firstItem="C68-0K-Axo" firstAttribute="width" secondItem="Rzz-1A-fEZ" secondAttribute="width" id="eKQ-Zo-6xW"/>
+                            <constraint firstItem="N82-ng-k8b" firstAttribute="width" secondItem="K6g-bJ-Ia2" secondAttribute="width" id="hfz-7F-Jfi"/>
+                            <constraint firstItem="K6g-bJ-Ia2" firstAttribute="width" secondItem="FzL-ai-tkd" secondAttribute="width" id="rXy-a8-Xiy"/>
+                            <constraint firstItem="Rzz-1A-fEZ" firstAttribute="width" secondItem="FzL-ai-tkd" secondAttribute="width" id="sdd-iV-GUW"/>
+                            <constraint firstItem="FzL-ai-tkd" firstAttribute="top" secondItem="iac-1t-pNL" secondAttribute="bottom" constant="42" id="zLG-Ul-xh6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign in" id="NmU-nS-WAQ"/>
+                    <connections>
+                        <outlet property="countryCodeField" destination="FzL-ai-tkd" id="eR2-oO-17W"/>
+                        <outlet property="phoneNumberField" destination="Rzz-1A-fEZ" id="co5-YX-fbg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ezS-Nx-wL1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-762" y="-1130"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -45,3 +45,5 @@ IOSVideoAppSecrets*
 /Apple Worldwide Developer Relations Certification Authority.cer
 /Certificates.p12
 /vendor/
+
+Config.plist
